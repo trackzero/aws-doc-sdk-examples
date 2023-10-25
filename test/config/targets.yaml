@@ -1,9 +1,9 @@
 cpp:
   account_id: "770244195820"
-  status: "disabled"
+  status: "enabled"
 dotnetv3:
   account_id: "441997275833"
-  status: "disabled"
+  status: "enabled"
 gov2:
   account_id: "234521034040"
   status: "disabled"
