@@ -4,26 +4,24 @@
  */
 
 import {
-    GlobalSignOutCommand,
-    CognitoIdentityProviderClient,
-  } from "@aws-sdk/client-cognito-identity-provider";
-import {
-    fromCognitoIdentityPool
-} from "@aws-sdk/credential-providers"
+  GlobalSignOutCommand,
+  CognitoIdentityProviderClient,
+} from "@aws-sdk/client-cognito-identity-provider";
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
-  /** snippet-start:[javascript.v3.cognito-idp.actions.globalSignOut] */
-  const globalSignOut = ({ accessCode }) => {
-    const client = new CognitoIdentityProviderClient({});
+/** snippet-start:[javascript.v3.cognito-idp.actions.GlobalSignOut] */
+const globalSignOut = ({ accessCode, identityPoolId }) => {
+  const client = new CognitoIdentityProviderClient({});
 
-    const command = new GlobalSignOutCommand({
-      AccessCode: accessCode,
-      credentials: fromCognitoIdentityPool({
-        identityPoolId: 'your-app-identity-pool-id',
-      })
-    });
+  const command = new GlobalSignOutCommand({
+    AccessCode: accessCode,
+    credentials: fromCognitoIdentityPool({
+      identityPoolId,
+    }),
+  });
 
-    return client.send(command);
-  };
-  /** snippet-end:[javascript.v3.cognito-idp.actions.globalSignOut] */
+  return client.send(command);
+};
+/** snippet-end:[javascript.v3.cognito-idp.actions.GlobalSignOut] */
 
-  export { globalSignOut };
+export { globalSignOut };
